@@ -1,30 +1,22 @@
 function solution(babbling) {
-    var answer = 0;
-    
-    for(let i=0; i<babbling.length; i++){
-        let word = babbling[i];
-        
-
+    return babbling.filter(word => {
         let ayaCount = (word.match(/aya/g) || []).length;
         let yeCount = (word.match(/ye/g) || []).length;
         let wooCount = (word.match(/woo/g) || []).length;
         let maCount = (word.match(/ma/g) || []).length;
 
-
+       
         let restCharsCount = word.replace(/aya|ye|woo|ma/g, '').length;
 
         
-        if(ayaCount <= 1 && yeCount <= 1 && wooCount <= 1 && maCount <= 1 && restCharsCount == 0){
-            answer++;
-        }
-    }
-
-    return answer;
+        return ayaCount <= 1 && yeCount <= 1 && wooCount <= 1 && maCount <= 1 && restCharsCount == 0;
+    }).length;
 }
 
 
 
-console.log(solution(["ayaye", "uuuma", "ye", "yemawoo", "ayaa"]))
+console.log(solution(["ayaye", "uuuma", "ye", "yemawoo", "ayaa"]));
+
 
 /* 
  * 제한사항

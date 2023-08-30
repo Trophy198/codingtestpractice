@@ -44,7 +44,17 @@ function solution(a, b, c, d) {
     return answer;
 }
 
-console.log(solution(2,2,2,2))
+const test_cases = [
+    [2, 2, 2, 2],
+    [4, 1, 4, 4],
+    [6, 3, 3, 6],
+    [2, 5, 2, 6],
+    [6, 4, 2, 5]
+];
+for (const [a, b, c, d] of test_cases) {
+   console.log(solution(a, b, c, d));
+}
+
 
 
 /**

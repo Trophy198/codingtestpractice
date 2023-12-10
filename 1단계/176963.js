@@ -1,20 +1,12 @@
 function solution(name, yearning, photo) {
-    for(let i = 0; i < photo.length; i++) {
-        for(let j = 0; j < photo[i].length; j++) {
-           name.forEach((people,index) => {
-            if(photo[i][j] === people) {
-                photo[i][j] = yearning[index];
-            }
-        });    
-    }
-}
-return sumNumbersInArray(photo);
-}
+    const scoreMap = name.reduce((map, currentName, index) => {
+        map[currentName] = yearning[index];
+        return map;
+    }, {});
 
-function sumNumbersInArray(arr) {
-    return arr.map(subArray => {
-        return subArray.reduce((sum, item) => {
-            return sum + (typeof item === 'number' ? item : 0);
+    return photo.map(photoItem => {
+        return photoItem.reduce((sum, person) => {
+            return sum + (scoreMap[person] || 0);
         }, 0);
     });
 }

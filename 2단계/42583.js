@@ -4,7 +4,6 @@ function solution(bridge_length, weight, truck_weights) {
     let weightOnBridge = 0;
 
     while (bridge.length) {
-        console.log(bridge.shift())
         weightOnBridge -= bridge.shift();
         time += 1;
 
